@@ -8,7 +8,7 @@ namespace: stormshield
 name: sns
 
 # The version of the collection. Must be compatible with semantic versioning
-version: 1.0.0
+version: 1.0.1
 
 # The path to the Markdown (.md) readme file. This path is relative to the root of the collection
 readme: README.md
@@ -46,7 +46,7 @@ dependencies: {}
 repository: https://www.github.com/stormshield/ansible-sns-collection
 
 # The URL to any online docs
-documentation: https://galaxy.ansible.com/ui/repo/published/stormshield/sns/docs
+documentation: https://stormshield.github.io/ansible-sns-collection
 
 # The URL to the homepage of the collection/project
 homepage: https://www.github.com/stormshield/ansible-sns-collection
