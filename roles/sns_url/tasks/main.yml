@@ -54,7 +54,7 @@
   - debug:
       msg: "{{ monitor_autoupdate }}"
 
-  when: base != ""
+  when: base is defined
 
 - name: Get current objects
   sns_command:
