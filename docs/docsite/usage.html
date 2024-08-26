@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Installation and usage &mdash; Ansible SNS collection  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=5707b69d" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/ansible.css?v=c5b67dd2" />
+      <link rel="stylesheet" type="text/css" href="../_static/antsibull-minimal.css?v=9c1ca88e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/rtd-ethical-ads.css?v=289b023e" />
+
+  
+    <link rel="shortcut icon" href="../_static/images/Ansible-Mark-RGB_Black.png"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=7f41d439"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Example for sns_alarm role" href="example_sns_alarm.html" />
+    <link rel="prev" title="Stormshield.Sns" href="../index.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="https://stormshield.eu/" target="_blank">Corporate website</a></li>
+    <li><a href="https://documentation.stormshield.eu/" target="_blank">Documentation</a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="../_static/images/Ansible-Mark-RGB_White.png"
+    alt="Ansible Logo">
+  <div class="DocSiteNav-title">Ansible SNS Collection Documentation</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Ansible SNS collection
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation and usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install">Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-an-inventory-file">Create an inventory file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#improve-ansible-playbook-output-optional">Improve ansible-playbook output (optional)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#execute-a-playbook">Execute a playbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-the-stormshield-sns-sns-backup-role">Using the <code class="xref any docutils literal notranslate"><span class="pre">stormshield.sns.sns_backup</span></code> role</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-the-stormshield-sns-sns-policy-role">Using the <code class="xref any docutils literal notranslate"><span class="pre">stormshield.sns.sns_policy</span></code> role</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#encrypt-passwords-with-ansible-vault">Encrypt passwords with Ansible Vault</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="example_sns_alarm.html">Example for sns_alarm role</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_sns_backup.html">Example for sns_backup role</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_sns_dns.html">Example for sns_dns role</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_sns_firmware_update.html">Example for sns_firmware_update role</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_sns_ntp.html">Example for sns_ntp role</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_sns_object.html">Example for sns_object role</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_sns_policy.html">Example for sns_policy role</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_sns_url.html">Example for sns_url role</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../sns_command_module.html">stormshield.sns.sns_command module – SNS command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sns_getconf_module.html">stormshield.sns.sns_getconf module – SNS config parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sns_object_import_module.html">stormshield.sns.sns_object_import module – SNS object csv import</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../sns_alarm_role.html">stormshield.sns.sns_alarm role – Alarm configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sns_backup_role.html">stormshield.sns.sns_backup role – Configuration backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sns_dns_role.html">stormshield.sns.sns_dns role – DNS configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sns_firmware_update_role.html">stormshield.sns.sns_firmware_update role – Firmware update</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sns_ntp_role.html">stormshield.sns.sns_ntp role – NTP configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sns_object_role.html">stormshield.sns.sns_object role – Object configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sns_policy_role.html">stormshield.sns.sns_policy role – Policy configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sns_url_role.html">stormshield.sns.sns_url role – URL configuration</a></li>
+</ul>
+<!-- extra nav elements for Ansible beyond RTD Sphinx Theme -->
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Ansible SNS collection</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Installation and usage</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <section id="installation-and-usage">
+<h1>Installation and usage<a class="headerlink" href="#installation-and-usage" title="Link to this heading"></a></h1>
+<p>This collection provides modules, roles and playbook to configure Stormshield SNS Appliances.</p>
+<section id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Link to this heading"></a></h2>
+<p>The modules require the installation of the python library <code class="xref any docutils literal notranslate"><span class="pre">stormshield.sns.sslclient</span></code> on the ansible host.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>stormshield.sns.sslclient
+</pre></div>
+</div>
+</section>
+<section id="install">
+<h2>Install<a class="headerlink" href="#install" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-galaxy<span class="w"> </span>collection<span class="w"> </span>install<span class="w"> </span>stormshield.sns
+</pre></div>
+</div>
+</section>
+<section id="create-an-inventory-file">
+<h2>Create an inventory file<a class="headerlink" href="#create-an-inventory-file" title="Link to this heading"></a></h2>
+<p>Edit <code class="xref any docutils literal notranslate"><span class="pre">/etc/ansible/hosts</span></code> or a local <code class="xref any docutils literal notranslate"><span class="pre">inventory.yml</span></code> and add your SNS appliances.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">sns_appliances</span><span class="p">:</span>
+<span class="nt">hosts</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">utm1</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">ansible_connection</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">local</span>
+<span class="w">    </span><span class="nt">appliance</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10.0.0.254</span>
+<span class="w">        </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admin</span>
+<span class="w">        </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secret</span>
+<span class="w">        </span><span class="nt">sslverifyhost</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+</pre></div>
+</div>
+<p>If you want to verify the CN of the appliance certificate, set the <a class="reference external" href="https://docs.ansible.com/ansible/devel/reference_appendices/glossary.html#term-Host" title="(in Ansible vdevel)"><code class="xref any docutils literal notranslate"><span class="pre">host</span></code></a> parameter to the appliance serial number and the <code class="xref any docutils literal notranslate"><span class="pre">ip</span></code> parameter to the product IP address.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">sns_appliances</span><span class="p">:</span>
+<span class="nt">hosts</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">utm1</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">ansible_connection</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">local</span>
+<span class="w">    </span><span class="nt">appliance</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VMSNSX08K000111</span>
+<span class="w">        </span><span class="nt">ip</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10.0.0.254</span>
+<span class="w">        </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admin</span>
+<span class="w">        </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secret</span>
+<span class="w">        </span><span class="nt">sslverifyhost</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</div>
+<p>Note: a local inventory file can be used by adding -i inventory.yml to the <a class="reference external" href="https://docs.ansible.com/ansible/devel/cli/ansible-playbook.html#ansible-playbook" title="(in Ansible vdevel)"><code class="xref any docutils literal notranslate"><span class="pre">ansible-playbook</span></code></a> command.</p>
+</section>
+<section id="improve-ansible-playbook-output-optional">
+<h2>Improve ansible-playbook output (optional)<a class="headerlink" href="#improve-ansible-playbook-output-optional" title="Link to this heading"></a></h2>
+<p>Edit <code class="xref any docutils literal notranslate"><span class="pre">~/.ansible.cfg</span></code>:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[defaults]
+bin_ansible_callbacks=True
+stdout_callback = yaml
+localhost_warning = false
+display_skipped_hosts = false
+</pre></div>
+</div>
+</section>
+<section id="execute-a-playbook">
+<h2>Execute a playbook<a class="headerlink" href="#execute-a-playbook" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook<span class="w"> </span>-i<span class="w"> </span>./inventory.yml<span class="w"> </span>stormshield.sns.sns_system_property
+</pre></div>
+</div>
+</section>
+<section id="using-the-stormshield-sns-sns-backup-role">
+<h2>Using the <code class="xref any docutils literal notranslate"><span class="pre">stormshield.sns.sns_backup</span></code> role<a class="headerlink" href="#using-the-stormshield-sns-sns-backup-role" title="Link to this heading"></a></h2>
+<p>This playbook will backup all the configuration of SNS appliances in the inventory to a local folder using the <code class="xref any docutils literal notranslate"><span class="pre">sns-backup</span></code> role.</p>
+<p>Create a playbook named <code class="xref any docutils literal notranslate"><span class="pre">backup.yml</span></code>:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sns_appliances</span>
+<span class="w">  </span><span class="nt">roles</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">stormshield.sns.backup</span>
+<span class="w">      </span><span class="nt">backup_path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;./backup&quot;</span>
+<span class="w">      </span><span class="nt">backup</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;mybackup.na&quot;</span>
+<span class="w">      </span><span class="nt">timestamp_prefix</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</div>
+<p>Run the playbook:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook<span class="w"> </span>-i<span class="w"> </span>./inventory.yml<span class="w"> </span>backup.yml
+</pre></div>
+</div>
+</section>
+<section id="using-the-stormshield-sns-sns-policy-role">
+<h2>Using the <code class="xref any docutils literal notranslate"><span class="pre">stormshield.sns.sns_policy</span></code> role<a class="headerlink" href="#using-the-stormshield-sns-sns-policy-role" title="Link to this heading"></a></h2>
+<p>This playbook will allow a user network to access the https intranet server.</p>
+<p>Create a playbook named <code class="xref any docutils literal notranslate"><span class="pre">policy.yml</span></code>:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sns_appliances</span>
+<span class="nt">roles</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">stormshield.sns.object</span>
+<span class="w">    </span><span class="nt">hosts </span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> name</span><span class="p">:</span><span class="w"> </span><span class="nv">intranet</span><span class="p p-Indicator">,</span><span class="nt"> ip</span><span class="p">:</span><span class="w"> </span><span class="nv">192.168.2.1</span><span class="p p-Indicator">,</span><span class="nt"> comment</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Intranet</span><span class="nv"> </span><span class="s">server&quot;</span><span class="p p-Indicator">}</span>
+<span class="w">    </span><span class="nt">networks</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> name</span><span class="p">:</span><span class="w"> </span><span class="nv">usernetwork</span><span class="p p-Indicator">,</span><span class="nt"> ip</span><span class="p">:</span><span class="w"> </span><span class="nv">192.168.1.0</span><span class="p p-Indicator">,</span><span class="nt"> mask</span><span class="p">:</span><span class="w"> </span><span class="nv">255.255.255.0</span><span class="w"> </span><span class="p p-Indicator">}</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">stormshield.sns.policy</span>
+<span class="w">    </span><span class="nt">activate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yes</span>
+<span class="w">    </span><span class="nt">slot</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+<span class="w">    </span><span class="nt">filter</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> action</span><span class="p">:</span><span class="w"> </span><span class="nv">pass</span><span class="p p-Indicator">,</span><span class="nt"> srctarget</span><span class="p">:</span><span class="w"> </span><span class="nv">usernetwork</span><span class="p p-Indicator">,</span><span class="nt"> dsttarget</span><span class="p">:</span><span class="w"> </span><span class="nv">intranet</span><span class="p p-Indicator">,</span><span class="nt"> dstport</span><span class="p">:</span><span class="w"> </span><span class="nv">https</span><span class="p p-Indicator">,</span><span class="nt"> comment</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Intranet&quot;</span><span class="p p-Indicator">}</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> action</span><span class="p">:</span><span class="w"> </span><span class="nv">pass</span><span class="p p-Indicator">,</span><span class="nt"> srctarget</span><span class="p">:</span><span class="w"> </span><span class="nv">any</span><span class="p p-Indicator">,</span><span class="nt"> dsttarget</span><span class="p">:</span><span class="w"> </span><span class="nv">any</span><span class="p p-Indicator">,</span><span class="nt"> comment</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Warning,</span><span class="nv"> </span><span class="s">pass</span><span class="nv"> </span><span class="s">all</span><span class="nv"> </span><span class="s">example&quot;</span><span class="p p-Indicator">}</span>
+</pre></div>
+</div>
+<p>Run the playbook:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook<span class="w"> </span>-i<span class="w"> </span>./inventory.yml<span class="w"> </span>policy.yml
+</pre></div>
+</div>
+</section>
+<section id="encrypt-passwords-with-ansible-vault">
+<h2>Encrypt passwords with Ansible Vault<a class="headerlink" href="#encrypt-passwords-with-ansible-vault" title="Link to this heading"></a></h2>
+<p>SNS passwords can be read in the inventory:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">sns_appliances</span><span class="p">:</span>
+<span class="nt">hosts</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">utm1</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">ansible_connection</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">local</span>
+<span class="w">    </span><span class="nt">appliance</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">192.168.152.129</span>
+<span class="w">        </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admin</span>
+<span class="w">        </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secret</span>
+<span class="w">        </span><span class="nt">sslverifyhost</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+</pre></div>
+</div>
+<p>To add a layer of security, we can create a ciphered file protected by a master password which will contains all the SNS passwords.</p>
+<p>Create a encrypted variable file for the inventory group:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>groups_vars/sns_appliances
+ansible-vault<span class="w"> </span>create<span class="w"> </span>groups_vars/sns_appliances/vault.yml
+</pre></div>
+</div>
+<p>The encrypted file can be later edited:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-vault<span class="w"> </span>edit<span class="w"> </span>groups_vars/sns_appliances/vault.yml
+</pre></div>
+</div>
+<p>Add entries for the inventory:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="nt">utm1_password</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;secret&quot;</span>
+</pre></div>
+</div>
+<p>Edit the inventory and replace the password by the variable referencing the encrypted password:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">sns_appliances</span><span class="p">:</span>
+<span class="nt">hosts</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">utm1</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">ansible_connection</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">local</span>
+<span class="w">    </span><span class="nt">appliance</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10.0.0.254</span>
+<span class="w">        </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admin</span>
+<span class="w">        </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{utm1_password}}&quot;</span>
+<span class="w">        </span><span class="nt">sslverifyhost</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+</pre></div>
+</div>
+<p>Run the playbook and provide the master password:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ansible-playbook<span class="w"> </span>-i<span class="w"> </span>inventory.yml<span class="w"> </span>--ask-vault-pass<span class="w"> </span>stormshield.sns.sns_system_property
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="Stormshield.Sns" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="example_sns_alarm.html" class="btn btn-neutral float-right" title="Example for sns_alarm role" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Stormshield.</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+</body>
+</html>

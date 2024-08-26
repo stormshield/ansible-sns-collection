@@ -1,0 +1,1701 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="2.12.0" name="antsibull-docs" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>stormshield.sns.sns_policy role – Policy configuration &mdash; Ansible SNS collection  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5707b69d" />
+      <link rel="stylesheet" type="text/css" href="_static/css/ansible.css?v=c5b67dd2" />
+      <link rel="stylesheet" type="text/css" href="_static/antsibull-minimal.css?v=9c1ca88e" />
+      <link rel="stylesheet" type="text/css" href="_static/css/rtd-ethical-ads.css?v=289b023e" />
+
+  
+    <link rel="shortcut icon" href="_static/images/Ansible-Mark-RGB_Black.png"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=7f41d439"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="stormshield.sns.sns_url role – URL configuration" href="sns_url_role.html" />
+    <link rel="prev" title="stormshield.sns.sns_object role – Object configuration" href="sns_object_role.html" /><!-- extra head elements for Ansible beyond RTD Sphinx Theme -->
+
+
+
+
+</head>
+
+<body class="wy-body-for-nav"><!-- extra body elements for Ansible beyond RTD Sphinx Theme -->
+
+<div class="DocSite-globalNav ansibleNav">
+  <ul>
+    <li><a href="https://stormshield.eu/" target="_blank">Corporate website</a></li>
+    <li><a href="https://documentation.stormshield.eu/" target="_blank">Documentation</a></li>
+  </ul>
+</div>
+
+<a class="DocSite-nav" href="/" style="padding-bottom: 30px;">
+
+  <img class="DocSiteNav-logo"
+    src="_static/images/Ansible-Mark-RGB_White.png"
+    alt="Ansible Logo">
+  <div class="DocSiteNav-title">Ansible SNS Collection Documentation</div>
+</a>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Ansible SNS collection
+          </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
+
+<div class="version">
+  
+    
+  
+</div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <label class="sr-only" for="q">Search docs:</label>
+    <input type="text" class="st-default-search-input" id="q" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+  
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="docsite/usage.html">Installation and usage</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="docsite/example_sns_alarm.html">Example for sns_alarm role</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docsite/example_sns_backup.html">Example for sns_backup role</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docsite/example_sns_dns.html">Example for sns_dns role</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docsite/example_sns_firmware_update.html">Example for sns_firmware_update role</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docsite/example_sns_ntp.html">Example for sns_ntp role</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docsite/example_sns_object.html">Example for sns_object role</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docsite/example_sns_policy.html">Example for sns_policy role</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docsite/example_sns_url.html">Example for sns_url role</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sns_command_module.html">stormshield.sns.sns_command module – SNS command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sns_getconf_module.html">stormshield.sns.sns_getconf module – SNS config parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sns_object_import_module.html">stormshield.sns.sns_object_import module – SNS object csv import</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="sns_alarm_role.html">stormshield.sns.sns_alarm role – Alarm configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sns_backup_role.html">stormshield.sns.sns_backup role – Configuration backup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sns_dns_role.html">stormshield.sns.sns_dns role – DNS configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sns_firmware_update_role.html">stormshield.sns.sns_firmware_update role – Firmware update</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sns_ntp_role.html">stormshield.sns.sns_ntp role – NTP configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sns_object_role.html">stormshield.sns.sns_object role – Object configuration</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">stormshield.sns.sns_policy role – Policy configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#entry-point-main-policy-configuration">Entry point <code class="docutils literal notranslate"><span class="pre">main</span></code> – Policy configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parameters">Parameters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#collection-links">Collection links</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sns_url_role.html">stormshield.sns.sns_url role – URL configuration</a></li>
+</ul>
+<!-- extra nav elements for Ansible beyond RTD Sphinx Theme -->
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ansible SNS collection</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">stormshield.sns.sns_policy role – Policy configuration</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+  
+           <div itemprop="articleBody">
+             
+  <span class="target" id="ansible-collections-stormshield-sns-sns-policy-role"></span><section id="stormshield-sns-sns-policy-role-policy-configuration">
+<h1>stormshield.sns.sns_policy role – Policy configuration<a class="headerlink" href="#stormshield-sns-sns-policy-role-policy-configuration" title="Link to this heading"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This role is part of the <a class="reference external" href="https://galaxy.ansible.com/ui/repo/published/stormshield/sns/">stormshield.sns collection</a> (version 1.0.1).</p>
+<p>It is not included in <code class="docutils literal notranslate"><span class="pre">ansible-core</span></code>.
+To check whether it is installed, run <code class="code docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">list</span></code>.</p>
+<p>To install it use: <code class="code docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">install</span> <span class="pre">stormshield.sns</span></code>.</p>
+<p>To use it in a playbook, specify: <code class="code docutils literal notranslate"><span class="pre">stormshield.sns.sns_policy</span></code>.</p>
+</div>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#entry-point-main-policy-configuration" id="id81">Entry point <code class="docutils literal notranslate"><span class="pre">main</span></code> – Policy configuration</a></p>
+<ul>
+<li><p><a class="reference internal" href="#synopsis" id="id82">Synopsis</a></p></li>
+<li><p><a class="reference internal" href="#parameters" id="id83">Parameters</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="entry-point-main-policy-configuration">
+<h2><a class="toc-backref" href="#id81" role="doc-backlink">Entry point <code class="docutils literal notranslate"><span class="pre">main</span></code> – Policy configuration</a><a class="headerlink" href="#entry-point-main-policy-configuration" title="Link to this heading"></a></h2>
+<section id="synopsis">
+<h3><a class="toc-backref" href="#id82" role="doc-backlink">Synopsis</a><a class="headerlink" href="#synopsis" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>This role configures filter and NAT policies of Stormshield Network Security appliances.</p></li>
+</ul>
+</section>
+<section id="parameters">
+<h3><a class="toc-backref" href="#id83" role="doc-backlink">Parameters</a><a class="headerlink" href="#parameters" title="Link to this heading"></a></h3>
+<table class="longtable ansible-option-table docutils align-default" style="width: 100%">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--activate"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-activate"><strong>activate</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--activate" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-cell"><p>Activate the slot</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-default-bold docutils literal notranslate"><strong><span class="pre">true</span></strong></code> <span class="ansible-option-choices-default-mark">← (default)</span></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--comment"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-comment"><strong>comment</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--comment" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-cell"><p>Slot comment</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter"><strong>filter</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=dictionary</span></p>
+</div></td>
+<td><div class="ansible-option-cell"><p>Filter rules</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/ackqosid"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-ackqosid"><strong>ackqosid</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/ackqosid" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>ACK QID name</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/action"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-action"><strong>action</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/action" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Rule action</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;pass&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;block&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;deleg&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;reset&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;log&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;decrypt&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;nat&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/antispam"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-antispam"><strong>antispam</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/antispam" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Use antispam analysis</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;on&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;off&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/antivirus"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-antivirus"><strong>antivirus</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/antivirus" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Use Antivirus analysis</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;on&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;off&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/beforevpn"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-beforevpn"><strong>beforevpn</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/beforevpn" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Apply before VPN</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;on&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;off&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/comment"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-comment"><strong>comment</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/comment" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Rule comment</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/count"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-count"><strong>count</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/count" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;on&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;off&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/dstgeo"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-dstgeo"><strong>dstgeo</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/dstgeo" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Destination geo object(&lt;objectgeo[<a href="#id53"><span class="problematic" id="id54">|objectgeo[|</span></a>…]]])</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/dsthostrep"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-dsthostrep"><strong>dsthostrep</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/dsthostrep" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Destination host reputation (&lt;0-65535&gt;)</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/dsthostrepop"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-dsthostrepop"><strong>dsthostrepop</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/dsthostrepop" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Destination host reputation operator</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;lt&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;gt&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/dstif"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-dstif"><strong>dstif</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/dstif" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Destination interface (any|&lt;interface name&gt;)</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/dstiprep"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-dstiprep"><strong>dstiprep</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/dstiprep" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Destination IP reputation (&lt;objectiprep[<a href="#id55"><span class="problematic" id="id56">|objectiprep[|</span></a>…]]])]</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/dstport"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-dstport"><strong>dstport</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/dstport" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Destination port (any|&lt;objectservice&gt;[,&lt;objectservice&gt;[,&lt;objectservice&gt;[,…]]])</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/dstportop"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-dstportop"><strong>dstportop</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/dstportop" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Destination port operator</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;eq&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;ne&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;gt&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;lt&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/dsttarget"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-dsttarget"><strong>dsttarget</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/dsttarget" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Destination target (any|[!]&lt;objectname&gt;[,&lt;objectname&gt;[,&lt;objectname&gt;[,…]]])</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/enforceipsecforward"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-enforceipsecforward"><strong>enforceipsecforward</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/enforceipsecforward" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Enforce IPsec forward</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;on&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;off&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/enforceipsecreverse"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-enforceipsecreverse"><strong>enforceipsecreverse</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/enforceipsecreverse" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Enforce IPsec reverse routing</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;on&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;off&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/ftpfiltering"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-ftpfiltering"><strong>ftpfiltering</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/ftpfiltering" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Use FTP filtering</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;on&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;off&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/fwservice"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-fwservice"><strong>fwservice</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/fwservice" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Service</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;httpproxy&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;webportal&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/icmpcode"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-icmpcode"><strong>icmpcode</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/icmpcode" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>ICMP code (“”<a href="#id1"><span class="problematic" id="id2">|</span></a>&lt;0-255&gt;)</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/icmptype"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-icmptype"><strong>icmptype</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/icmptype" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>ICMP type (“”<a href="#id3"><span class="problematic" id="id4">|</span></a>&lt;0-255&gt;)</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/inbound"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-inbound"><strong>inbound</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/inbound" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Inbound</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;sip_udp&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/inspection"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-inspection"><strong>inspection</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/inspection" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Inspection level</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;firewall&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;ids&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;ips&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/ipproto"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-ipproto"><strong>ipproto</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/ipproto" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>IP protocol(any|&lt;IP protocol name&gt;)</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/ipstate"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-ipstate"><strong>ipstate</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/ipstate" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>IP state</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;on&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;off&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/loglevel"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-loglevel"><strong>loglevel</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/loglevel" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Rule log level</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;none&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;log&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;minor&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;major&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/mailfiltering"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-mailfiltering"><strong>mailfiltering</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/mailfiltering" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Mail policy index (“”<a href="#id5"><span class="problematic" id="id6">|</span></a>&lt;0-9&gt;)</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/name"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-name"><strong>name</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/name" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Rule name</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/natdstarp"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-natdstarp"><strong>natdstarp</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/natdstarp" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>NAT destination ARP</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;on&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;off&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/natdstlb"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-natdstlb"><strong>natdstlb</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/natdstlb" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Load balancing algorithm on NAT destination IP</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;none&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;roundrobin&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;srchash&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;connhash&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;random&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/natdstport"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-natdstport"><strong>natdstport</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/natdstport" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>NAT destination port (original|&lt;objectservice&gt;|&lt;port range&gt;)</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/natdstportlb"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-natdstportlb"><strong>natdstportlb</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/natdstportlb" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Load balancing algorithm on nat destination port</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;none&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;roundrobin&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;srchash&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;connhash&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;random&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/natdstportop"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-natdstportop"><strong>natdstportop</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/natdstportop" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>NAT destination port operator</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;eq&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;ne&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;gt&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;lt&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/natdsttarget"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-natdsttarget"><strong>natdsttarget</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/natdsttarget" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>NAT destination target (“”<a href="#id57"><span class="problematic" id="id58">|original|</span></a>&lt;object name&gt;)</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/natsrcarp"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-natsrcarp"><strong>natsrcarp</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/natsrcarp" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>NAT source ARP</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;on&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;off&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/natsrclb"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-natsrclb"><strong>natsrclb</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/natsrclb" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>NAT source load balancing algorithm</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;none&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;roundrobin&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;srchash&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;connhash&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;random&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/natsrcport"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-natsrcport"><strong>natsrcport</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/natsrcport" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>NAT source port (original|&lt;objectservice&gt;|&lt;port range&gt;)</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/natsrcportlb"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-natsrcportlb"><strong>natsrcportlb</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/natsrcportlb" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>NAT source port loadbalancing algorithm</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;none&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;random&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/natsrcportop"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-natsrcportop"><strong>natsrcportop</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/natsrcportop" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>NAT source port operator</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;eq&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;ne&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;gt&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;lt&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/natsrctarget"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-natsrctarget"><strong>natsrctarget</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/natsrctarget" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>NAT source target (“”<a href="#id59"><span class="problematic" id="id60">|original|</span></a>&lt;object name&gt;)</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/noconnlog"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-noconnlog"><strong>noconnlog</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/noconnlog" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Don’t log the connection all|([disk],[syslog],[ipfix])</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/position"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-position"><strong>position</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/position" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Insert at line N</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/proto"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-proto"><strong>proto</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/proto" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Application protocol (auto|none|&lt;app protocol name&gt;)</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/proxycache"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-proxycache"><strong>proxycache</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/proxycache" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Use cache proxy</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;on&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;off&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/qosfairness"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-qosfairness"><strong>qosfairness</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/qosfairness" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>QoS fairness</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;state&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;user&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;host&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/qosid"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-qosid"><strong>qosid</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/qosid" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>QID name</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/rate"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-rate"><strong>rate</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/rate" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>(“”<a href="#id7"><span class="problematic" id="id8">|</span></a>&lt;tcp&gt;,&lt;udp&gt;,&lt;icmp&gt;,&lt;request&gt;)</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/route"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-route"><strong>route</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/route" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Use route (“”<a href="#id61"><span class="problematic" id="id62">|\&lt;objrouter\&gt;|</span></a>&lt;hostname&gt;|&lt;ipaddr&gt;)</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/rulename"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-rulename"><strong>rulename</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/rulename" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Rule name</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/sandboxing"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-sandboxing"><strong>sandboxing</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/sandboxing" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Use sandboxing analysis</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;on&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;off&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/schedule"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-schedule"><strong>schedule</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/schedule" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Rule scheduling (anytime|&lt;time object&gt;)</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/securityinspection"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-securityinspection"><strong>securityinspection</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/securityinspection" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Security inspection index (“”<a href="#id9"><span class="problematic" id="id10">|</span></a>&lt;0-9&gt;)</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/settos"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-settos"><strong>settos</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/settos" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Set TOS Field (“”<a href="#id11"><span class="problematic" id="id12">|</span></a>1-254)</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/srcgeo"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-srcgeo"><strong>srcgeo</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/srcgeo" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Source geo object (&lt;objectgeo[<a href="#id63"><span class="problematic" id="id64">|\&lt;objectgeo\&gt;[|</span></a>…]]])</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/srchostrep"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-srchostrep"><strong>srchostrep</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/srchostrep" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Source host reputation filter (&lt;0-65535&gt;)</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/srchostrepop"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-srchostrepop"><strong>srchostrepop</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/srchostrepop" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Source host reputation operator</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;lt&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;gt&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/srcif"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-srcif"><strong>srcif</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/srcif" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Source interface (any|&lt;interface name&gt;)</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/srciprep"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-srciprep"><strong>srciprep</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/srciprep" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>=(&lt;objectiprep[<a href="#id65"><span class="problematic" id="id66">|\&lt;objectiprep\&gt;[|</span></a>…]]])]</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/srcport"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-srcport"><strong>srcport</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/srcport" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Source port (any|&lt;objectservice&gt;[,&lt;objectservice&gt;[,&lt;objectservice&gt;[,…]]])</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/srcportop"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-srcportop"><strong>srcportop</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/srcportop" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Source port operator</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;eq&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;ne&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;gt&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;lt&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/srctarget"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-srctarget"><strong>srctarget</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/srctarget" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Source target (any|[!]&lt;objectname&gt;[,&lt;objectname&gt;[,&lt;objectname&gt;[,…]]])</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/srcuser"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-srcuser"><strong>srcuser</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/srcuser" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Source user (“”<a href="#id13"><span class="problematic" id="id14">|</span></a>any|unknown|[!]&lt;user&gt;|[!]&lt;usergroup&gt;)</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/srcuserdomain"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-srcuserdomain"><strong>srcuserdomain</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/srcuserdomain" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Source user domain (“”<a href="#id15"><span class="problematic" id="id16">|</span></a>&lt;domain name&gt;)</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/srcusermethod"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-srcusermethod"><strong>srcusermethod</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/srcusermethod" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Source user authentication method</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;plain&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;spnego&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;ssl&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;radius&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;kerberos&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;agent-ad&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;openvpn&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;ipsec&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;guest&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;agent-guard&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/srcusertype"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-srcusertype"><strong>srcusertype</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/srcusertype" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Source user type (“”<a href="#id17"><span class="problematic" id="id18">|</span></a>user|group)</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/sslfiltering"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-sslfiltering"><strong>sslfiltering</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/sslfiltering" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>SSL policy index (<a href="#id19"><span class="problematic" id="id20">|</span></a>&lt;0-9&gt;)</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/state"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-state"><strong>state</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/state" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Rule state</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;on&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;off&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/synproxy"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-synproxy"><strong>synproxy</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/synproxy" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>SYN proxy</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;on&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;off&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/tos"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-tos"><strong>tos</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/tos" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Filter TOS field (“”<a href="#id21"><span class="problematic" id="id22">|</span></a>&lt;1-254&gt;)</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/urlfiltering"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-urlfiltering"><strong>urlfiltering</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/urlfiltering" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>URL policy index (“”<a href="#id23"><span class="problematic" id="id24">|</span></a>&lt;0-9&gt;)</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/via"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-via"><strong>via</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/via" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Via</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;any&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;sslvpn&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;httpproxy&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;ipsec&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;sslproxy&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;none&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--filter/webportalexcept"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-webportalexcept"><strong>webportalexcept</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--filter/webportalexcept" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Web portal exception (“”<a href="#id25"><span class="problematic" id="id26">|</span></a>urlgroup[,urlgroup[,urlgroup[,…]]])</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--mode"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-mode"><strong>mode</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--mode" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-cell"><p>Rule add mode</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;add&quot;</span></code></p></li>
+<li><p><code class="ansible-option-default-bold docutils literal notranslate"><strong><span class="pre">&quot;reset&quot;</span></strong></code> <span class="ansible-option-choices-default-mark">← (default)</span></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;del&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat"><strong>nat</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">list</span> / <span class="ansible-option-elements">elements=dictionary</span></p>
+</div></td>
+<td><div class="ansible-option-cell"><p>NAT rules</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/ackqosid"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-ackqosid"><strong>ackqosid</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/ackqosid" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>ACK QID name</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/action"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-action"><strong>action</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/action" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Rule action</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;pass&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;block&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;deleg&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;reset&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;log&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;decrypt&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;nat&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/antispam"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-antispam"><strong>antispam</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/antispam" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Use antispam analysis</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;on&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;off&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/antivirus"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-antivirus"><strong>antivirus</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/antivirus" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Use Antivirus analysis</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;on&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;off&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/beforevpn"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-beforevpn"><strong>beforevpn</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/beforevpn" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Apply before VPN</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;on&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;off&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/comment"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-comment"><strong>comment</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/comment" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Rule comment</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/count"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-count"><strong>count</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/count" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;on&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;off&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/dstgeo"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-dstgeo"><strong>dstgeo</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/dstgeo" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Destination geo object(&lt;objectgeo[<a href="#id67"><span class="problematic" id="id68">|objectgeo[|</span></a>…]]])</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/dsthostrep"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-dsthostrep"><strong>dsthostrep</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/dsthostrep" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Destination host reputation (&lt;0-65535&gt;)</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/dsthostrepop"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-dsthostrepop"><strong>dsthostrepop</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/dsthostrepop" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Destination host reputation operator</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;lt&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;gt&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/dstif"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-dstif"><strong>dstif</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/dstif" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Destination interface (any|&lt;interface name&gt;)</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/dstiprep"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-dstiprep"><strong>dstiprep</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/dstiprep" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Destination IP reputation (&lt;objectiprep[<a href="#id69"><span class="problematic" id="id70">|objectiprep[|</span></a>…]]])]</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/dstport"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-dstport"><strong>dstport</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/dstport" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Destination port (any|&lt;objectservice&gt;[,&lt;objectservice&gt;[,&lt;objectservice&gt;[,…]]])</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/dstportop"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-dstportop"><strong>dstportop</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/dstportop" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Destination port operator</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;eq&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;ne&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;gt&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;lt&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/dsttarget"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-dsttarget"><strong>dsttarget</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/dsttarget" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Destination target (any|[!]&lt;objectname&gt;[,&lt;objectname&gt;[,&lt;objectname&gt;[,…]]])</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/enforceipsecforward"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-enforceipsecforward"><strong>enforceipsecforward</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/enforceipsecforward" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Enforce IPsec forward</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;on&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;off&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/enforceipsecreverse"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-enforceipsecreverse"><strong>enforceipsecreverse</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/enforceipsecreverse" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Enforce IPsec reverse routing</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;on&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;off&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/ftpfiltering"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-ftpfiltering"><strong>ftpfiltering</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/ftpfiltering" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Use FTP filtering</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;on&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;off&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/fwservice"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-fwservice"><strong>fwservice</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/fwservice" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Service</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;httpproxy&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;webportal&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/icmpcode"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-icmpcode"><strong>icmpcode</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/icmpcode" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>ICMP code (“”<a href="#id27"><span class="problematic" id="id28">|</span></a>&lt;0-255&gt;)</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/icmptype"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-icmptype"><strong>icmptype</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/icmptype" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>ICMP type (“”<a href="#id29"><span class="problematic" id="id30">|</span></a>&lt;0-255&gt;)</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/inbound"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-inbound"><strong>inbound</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/inbound" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Inbound</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;sip_udp&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/inspection"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-inspection"><strong>inspection</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/inspection" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Inspection level</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;firewall&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;ids&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;ips&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/ipproto"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-ipproto"><strong>ipproto</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/ipproto" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>IP protocol(any|&lt;IP protocol name&gt;)</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/ipstate"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-ipstate"><strong>ipstate</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/ipstate" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>IP state</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;on&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;off&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/loglevel"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-loglevel"><strong>loglevel</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/loglevel" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Rule log level</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;none&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;log&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;minor&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;major&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/mailfiltering"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-mailfiltering"><strong>mailfiltering</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/mailfiltering" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Mail policy index (“”<a href="#id31"><span class="problematic" id="id32">|</span></a>&lt;0-9&gt;)</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/name"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-name"><strong>name</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/name" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Rule name</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/natdstarp"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-natdstarp"><strong>natdstarp</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/natdstarp" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>NAT destination ARP</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;on&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;off&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/natdstlb"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-natdstlb"><strong>natdstlb</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/natdstlb" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Load balancing algorithm on NAT destination IP</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;none&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;roundrobin&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;srchash&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;connhash&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;random&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/natdstport"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-natdstport"><strong>natdstport</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/natdstport" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>NAT destination port (original|&lt;objectservice&gt;|&lt;port range&gt;)</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/natdstportlb"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-natdstportlb"><strong>natdstportlb</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/natdstportlb" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Load balancing algorithm on nat destination port</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;none&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;roundrobin&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;srchash&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;connhash&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;random&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/natdstportop"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-natdstportop"><strong>natdstportop</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/natdstportop" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>NAT destination port operator</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;eq&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;ne&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;gt&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;lt&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/natdsttarget"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-natdsttarget"><strong>natdsttarget</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/natdsttarget" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>NAT destination target (“”<a href="#id71"><span class="problematic" id="id72">|original|</span></a>&lt;object name&gt;)</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/natsrcarp"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-natsrcarp"><strong>natsrcarp</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/natsrcarp" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>NAT source ARP</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;on&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;off&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/natsrclb"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-natsrclb"><strong>natsrclb</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/natsrclb" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>NAT source load balancing algorithm</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;none&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;roundrobin&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;srchash&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;connhash&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;random&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/natsrcport"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-natsrcport"><strong>natsrcport</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/natsrcport" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>NAT source port (original|&lt;objectservice&gt;|&lt;port range&gt;)</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/natsrcportlb"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-natsrcportlb"><strong>natsrcportlb</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/natsrcportlb" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>NAT source port loadbalancing algorithm</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;none&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;random&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/natsrcportop"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-natsrcportop"><strong>natsrcportop</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/natsrcportop" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>NAT source port operator</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;eq&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;ne&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;gt&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;lt&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/natsrctarget"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-natsrctarget"><strong>natsrctarget</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/natsrctarget" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>NAT source target (“”<a href="#id73"><span class="problematic" id="id74">|original|</span></a>&lt;object name&gt;)</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/noconnlog"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-noconnlog"><strong>noconnlog</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/noconnlog" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Don’t log the connection all|([disk],[syslog],[ipfix])</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/position"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-position"><strong>position</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/position" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Insert at line N</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/proto"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-proto"><strong>proto</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/proto" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Application protocol (auto|none|&lt;app protocol name&gt;)</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/proxycache"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-proxycache"><strong>proxycache</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/proxycache" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Use cache proxy</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;on&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;off&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/qosfairness"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-qosfairness"><strong>qosfairness</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/qosfairness" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>QoS fairness</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;state&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;user&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;host&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/qosid"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-qosid"><strong>qosid</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/qosid" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>QID name</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/rate"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-rate"><strong>rate</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/rate" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>(“”<a href="#id33"><span class="problematic" id="id34">|</span></a>&lt;tcp&gt;,&lt;udp&gt;,&lt;icmp&gt;,&lt;request&gt;)</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/route"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-route"><strong>route</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/route" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Use route (“”<a href="#id75"><span class="problematic" id="id76">|\&lt;objrouter\&gt;|</span></a>&lt;hostname&gt;|&lt;ipaddr&gt;)</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/rulename"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-rulename"><strong>rulename</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/rulename" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Rule name</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/sandboxing"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-sandboxing"><strong>sandboxing</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/sandboxing" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Use sandboxing analysis</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;on&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;off&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/schedule"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-schedule"><strong>schedule</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/schedule" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Rule scheduling (anytime|&lt;time object&gt;)</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/securityinspection"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-securityinspection"><strong>securityinspection</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/securityinspection" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Security inspection index (“”<a href="#id35"><span class="problematic" id="id36">|</span></a>&lt;0-9&gt;)</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/settos"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-settos"><strong>settos</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/settos" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Set TOS Field (“”<a href="#id37"><span class="problematic" id="id38">|</span></a>1-254)</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/srcgeo"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-srcgeo"><strong>srcgeo</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/srcgeo" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Source geo object (&lt;objectgeo[<a href="#id77"><span class="problematic" id="id78">|\&lt;objectgeo\&gt;[|</span></a>…]]])</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/srchostrep"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-srchostrep"><strong>srchostrep</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/srchostrep" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Source host reputation filter (&lt;0-65535&gt;)</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/srchostrepop"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-srchostrepop"><strong>srchostrepop</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/srchostrepop" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Source host reputation operator</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;lt&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;gt&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/srcif"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-srcif"><strong>srcif</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/srcif" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Source interface (any|&lt;interface name&gt;)</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/srciprep"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-srciprep"><strong>srciprep</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/srciprep" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>=(&lt;objectiprep[<a href="#id79"><span class="problematic" id="id80">|\&lt;objectiprep\&gt;[|</span></a>…]]])]</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/srcport"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-srcport"><strong>srcport</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/srcport" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Source port (any|&lt;objectservice&gt;[,&lt;objectservice&gt;[,&lt;objectservice&gt;[,…]]])</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/srcportop"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-srcportop"><strong>srcportop</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/srcportop" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Source port operator</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;eq&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;ne&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;gt&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;lt&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/srctarget"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-srctarget"><strong>srctarget</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/srctarget" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Source target (any|[!]&lt;objectname&gt;[,&lt;objectname&gt;[,&lt;objectname&gt;[,…]]])</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/srcuser"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-srcuser"><strong>srcuser</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/srcuser" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Source user (“”<a href="#id39"><span class="problematic" id="id40">|</span></a>any|unknown|[!]&lt;user&gt;|[!]&lt;usergroup&gt;)</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/srcuserdomain"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-srcuserdomain"><strong>srcuserdomain</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/srcuserdomain" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Source user domain (“”<a href="#id41"><span class="problematic" id="id42">|</span></a>&lt;domain name&gt;)</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/srcusermethod"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-srcusermethod"><strong>srcusermethod</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/srcusermethod" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Source user authentication method</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;plain&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;spnego&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;ssl&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;radius&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;kerberos&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;agent-ad&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;openvpn&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;ipsec&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;guest&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;agent-guard&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/srcusertype"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-srcusertype"><strong>srcusertype</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/srcusertype" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Source user type (“”<a href="#id43"><span class="problematic" id="id44">|</span></a>user|group)</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/sslfiltering"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-sslfiltering"><strong>sslfiltering</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/sslfiltering" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>SSL policy index (<a href="#id45"><span class="problematic" id="id46">|</span></a>&lt;0-9&gt;)</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/state"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-state"><strong>state</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/state" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Rule state</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;on&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;off&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/synproxy"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-synproxy"><strong>synproxy</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/synproxy" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>SYN proxy</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;on&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;off&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/tos"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-tos"><strong>tos</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/tos" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Filter TOS field (“”<a href="#id47"><span class="problematic" id="id48">|</span></a>&lt;1-254&gt;)</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/urlfiltering"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-urlfiltering"><strong>urlfiltering</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/urlfiltering" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>URL policy index (“”<a href="#id49"><span class="problematic" id="id50">|</span></a>&lt;0-9&gt;)</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/via"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-via"><strong>via</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/via" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Via</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;any&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;sslvpn&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;httpproxy&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;ipsec&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;sslproxy&quot;</span></code></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;none&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--nat/webportalexcept"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-webportalexcept"><strong>webportalexcept</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--nat/webportalexcept" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Web portal exception (“”<a href="#id51"><span class="problematic" id="id52">|</span></a>urlgroup[,urlgroup[,urlgroup[,…]]])</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--scope"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-scope"><strong>scope</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--scope" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-cell"><p>Use local or global slot</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-default-bold docutils literal notranslate"><strong><span class="pre">&quot;local&quot;</span></strong></code> <span class="ansible-option-choices-default-mark">← (default)</span></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">&quot;global&quot;</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--slot"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-slot"><strong>slot</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--slot" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span> / <span class="ansible-option-required">required</span></p>
+</div></td>
+<td><div class="ansible-option-cell"><p>Slot number</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-main--slotname"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-slotname"><strong>slotname</strong></p>
+<a class="ansibleOptionLink" href="#parameter-main--slotname" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-cell"><p>Name of the slot</p>
+</div></td>
+</tr>
+</tbody>
+</table>
+<section id="collection-links">
+<h4>Collection links<a class="headerlink" href="#collection-links" title="Link to this heading"></a></h4>
+<ul class="ansible-links">
+<li><span><a aria-role="button" class="ansible-link reference external" href="https://www.github.com/stormshield/ansible-sns-collection/issues" rel="noopener external" target="_blank">Issue Tracker</a></span></li>
+<li><span><a aria-role="button" class="ansible-link reference external" href="https://www.github.com/stormshield/ansible-sns-collection" rel="noopener external" target="_blank">Repository (Sources)</a></span></li>
+</ul>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sns_object_role.html" class="btn btn-neutral float-left" title="stormshield.sns.sns_object role – Object configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sns_url_role.html" class="btn btn-neutral float-right" title="stormshield.sns.sns_url role – URL configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Stormshield.</p>
+  </div>
+
+  
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script><!-- extra footer elements for Ansible beyond RTD Sphinx Theme -->
+
+</body>
+</html>
