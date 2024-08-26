@@ -1,0 +1,33 @@
+---
+- hosts: all
+  tasks:
+    - name: Activate SSH service on remote firewall
+      stormshield.sns.sns_command:
+        appliance: "{{ hostvars[inventory_hostname].appliance }}"
+        script: |
+          CONFIG SSH UPDATE state=1 userpass=1
+          CONFIG SSH ACTIVATE
+
+    - name: Get filter slot information
+      stormshield.sns.sns_command:
+        appliance: "{{ hostvars[inventory_hostname].appliance }}"
+        command: "CONFIG SLOT LIST type=filter"
+      register: slotinfo
+
+    - set_fact:
+        filterslot: "{{ slotinfo.data['Global']['active'] }}"
+
+    - name: Get filtering rules
+      stormshield.sns.sns_command:
+        appliance: "{{ hostvars[inventory_hostname].appliance }}"
+        command: "CONFIG FILTER EXPLICIT type=filter index={{ filterslot }}"
+      register: filterrules
+
+    - name: "Add filter rule to allow ssh on OUT"
+      stormshield.sns.sns_command:
+        appliance: "{{ hostvars[inventory_hostname].appliance }}"
+        script: |
+          CONFIG FILTER RULE INSERT type=filter index={{ filterslot }} position=1 state=on action=pass srctarget=Any srcif=out dsttarget=Firewall_out dstport=ssh comment="Allow SSH on OUT"
+          CONFIG FILTER ACTIVATE
+          CONFIG SLOT ACTIVATE type=filter slot={{ filterslot }}
+      when: "'Allow SSH on OUT' not in filterrules.data.Filter[0]"

@@ -1,0 +1,17 @@
+argument_specs:
+  main:
+    short_description: DNS configuration
+    description:
+      - This role configures DNS servers on Stormshield Network Security appliances.
+    options:
+      dns_servers:
+        description: List of DNS servers with their object/host names and their IP addresses.
+        type: "list"
+        elements: "str"
+        options:
+          host:
+            type: "str"
+            description: Object name
+          ip:
+            type: "str"
+            description: DNS server IP address

@@ -1,0 +1,70 @@
+argument_specs:
+  main:
+    short_description: Alarm configuration
+    description:
+      - This role configure IPS alarms of Stormshield Network Security appliances.
+    options:
+      protocols:
+        description: List of protocols to configure.
+        type: "list"
+        elements: dict
+        options:
+          protocol:
+            type: "str"
+            description: Protocol name
+            required: true
+          alarms:
+            type: "list"
+            elements: "dict"
+            description: "Alarms for this protocol"
+            options:
+              index:
+                type: "int"
+                required: true
+                description: Profile index
+              id:
+                type: "int"
+                required: true
+                description: Alarm id
+              context:
+                type: "str"
+                required: true
+                description: "'protocol' or ASQ context name"
+              action:
+                type: "str"
+                choices: [pass, block]
+                description: Alarm reaction
+              level:
+                type: "str"
+                choices: [minor, major, ignore]
+                description: alarm level
+              dump:
+                type: "int"
+                choices: [0, 1]
+                description: dump the network packet in the log
+              email:
+                type: "str"
+                choices: ["on", "off"]
+                description: Send alarm by e-mail
+              emailduration:
+                type: "int"
+                description: E-mail delay in seconds
+              emailcount:
+                type: "int"
+                description: E-mail count
+              blacklist:
+                type: "str"
+                choices: ["on", "off"]
+                description: Add the IP address to the blacklist
+              blduration:
+                type: "int"
+                description: blacklist duration in minutes
+              comment:
+                type: "str"
+                description: comment
+              qid:
+                type: "str"
+                description: Queue name
+              ackqid:
+                type: "str"
+                description: ACK queue name

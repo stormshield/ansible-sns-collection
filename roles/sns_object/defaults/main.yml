@@ -1,0 +1,19 @@
+---
+# defaults file for sns_object
+scope: local
+state: ""
+mode: reset
+csvfileimport: []
+hosts: []
+ranges: []
+networks: []
+netgroups: []
+services: []
+servicegroups: []
+protocols: []
+timeobjects: []
+fqdnobjects: []
+geogroups: []
+iprepgroups: []
+routers: []
+qos: {}

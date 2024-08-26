@@ -1,0 +1,12 @@
+---
+- hosts: all
+  roles:
+    - role: stormshield.sns.sns_alarm
+      protocols:
+        - protocol: http
+          alarms:
+            - { index: 1, context: "http:client:header", id: 67, level: ignore }
+            - { index: 0, context: "protocol", id: 49, action: pass, level: ignore }
+        - protocol: dns
+          alarms:
+            - { index: 1, context: "dns_udp:request", id: 1, level: minor, dump: 1 }

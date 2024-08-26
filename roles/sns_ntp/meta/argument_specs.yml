@@ -1,0 +1,30 @@
+argument_specs:
+  main:
+    short_description: NTP configuration
+    description:
+      - This role configures the NTP service and timezone on Stormshield Network Security appliances.
+    options:
+      timezone:
+        type: "str"
+        description: "Timezone name"
+      ntp_state:
+        type: int
+        choices: [0, 1]
+        default: 1
+        description: "NTP service state"
+      ntp_servers:
+        type: "list"
+        elements: "dict"
+        description: List of NTP server to use
+        options:
+          host:
+            type: "str"
+            required: true
+            description: "NTP server hostname"
+          key:
+            type: "str"
+            description: "Authentication key"
+      reboot_if_needed:
+        type: bool
+        default: false
+        description: "Reboot to apply if needed"

@@ -1,0 +1,15 @@
+---
+# tasks file for sns_dns
+
+- name: Get current dns configuration
+  sns_command:
+    appliance: "{{ hostvars[inventory_hostname].appliance }}"
+    command: CONFIG DNS SERVER LIST
+  register: dns_old_servers
+  changed_when: False
+
+- name: Execute ntp configuration script
+  sns_command:
+    appliance: "{{ hostvars[inventory_hostname].appliance }}"
+    force_modify: "{{ hostvars[inventory_hostname].force_modify | default(false) }}"
+    script: "{{ lookup('template', 'sns_dns.j2') }}"

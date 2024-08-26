@@ -1,0 +1,9 @@
+- name: "Configuring alarms for protocol {{ protocol.protocol }}"
+  include_tasks: alarm.yml
+  loop: "{{ protocol.alarms }}"
+  loop_control:
+    loop_var: alarm
+
+- name: "Activate protocol"
+  set_fact:
+    script: "{{ script }}CONFIG PROTOCOL {{ protocol.protocol.upper() }} ACTIVATE\n"
