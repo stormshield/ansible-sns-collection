@@ -14,11 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-DOCUMENTATION = '''
+DOCUMENTATION = r'''
 ---
 module: sns_command
 short_description: SNS command
@@ -27,27 +23,75 @@ description:
   - "Configuration API reference: https://documentation.stormshield.eu/SNS/v3/en/Content/CLI_Serverd_Commands_reference_Guide_v3/Introduction.htm"
 options:
   script:
+    type: str
     description:
-      - Configuration script to execute
+      - Configuration script to execute.
   expect_disconnect:
+    type: bool
+    default: False
     description:
-      - "Set to True if the script makes the remote server to disconnect (ie: install firmware update)"
+      - "Set to True if the script makes the remote server to disconnect (ie: install firmware update)."
   force_modify:
+    type: bool
+    default: False
     description:
       - Set to true to disconnect other administrator already connected with modify privilege.
   timeout:
+    type: int
+    default: 30
     description:
       - Set the connection and read timeout.
   appliance:
-    description:
-      - appliance connection's parameters (host, port, user, password, sslverifypeer, sslverifyhost, cabundle, usercert, proxy)
+    required: true
+    type: "dict"
+    description: SNS appliance connection parameters
+    suboptions:
+      host:
+        required: true
+        type: str
+        description: Hostname or ip
+      ip:
+        type: str
+        description: IP address
+      port:
+        type: int
+        default: 443
+        description: Port to connect
+      user:
+        type: str
+        default: "admin"
+        description: User name
+      password:
+        type: str
+        description: Connection password
+      sslverifypeer:
+        type: bool
+        default: true
+        description: Strict SSL CA check
+      sslverifyhost:
+        type: bool
+        default: true
+        description: Strict SSL host name check
+      cabundle:
+        type: str
+        default: none
+        description: Path to the CA bundle file
+      usercert:
+        type: str
+        default: none
+        description: Path to the user certificate file
+      proxy:
+        type: str
+        default: none
+        description: "Proxy URL (scheme://user:password@host:port)"
 author:
-  - Remi Pauchet (@stormshield)
+  - Remi Pauchet (@remip2)
 notes:
   - This module requires the stormshield.sns.sslclient python library
 '''
 
-EXAMPLES = '''
+
+EXAMPLES = r'''
 - name: Get appliance properties
   stormshield.sns.sns_command:
     script: "SYSTEM PROPERTY"
@@ -66,7 +110,7 @@ EXAMPLES = '''
       password: mypassword
 '''
 
-RETURN = '''
+RETURN = r'''
 ret:
   description: last command return code
   returned: changed

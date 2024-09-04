@@ -8,10 +8,13 @@ argument_specs:
         description: List of DNS servers with their object/host names and their IP addresses.
         type: "list"
         elements: "str"
+        required: true
         options:
           host:
             type: "str"
             description: Object name
+            required: true
           ip:
             type: "str"
             description: DNS server IP address
+            required: true

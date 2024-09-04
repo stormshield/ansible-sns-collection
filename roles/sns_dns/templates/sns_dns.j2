@@ -1,6 +1,6 @@
 #create objects
 {% for server in dns_servers %}
-CONFIG OBJECT HOST NEW name="{{ server.host }}"" ip="{{ server.ip }}" update=1
+CONFIG OBJECT HOST NEW name="{{ server.host }}" ip="{{ server.ip }}" update=1
 {% endfor %}
 CONFIG OBJECT ACTIVATE
 

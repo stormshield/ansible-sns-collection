@@ -14,11 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-ANSIBLE_METADATA = {'metadata_version': '1.1',
-                    'status': ['preview'],
-                    'supported_by': 'community'}
-
-DOCUMENTATION = '''
+DOCUMENTATION = r'''
 ---
 module: sns_getconf
 short_description: SNS config parser
@@ -30,24 +26,26 @@ description:
   - This module extract the value with a given section/token
 options:
   result:
-    description:
-      - Command result to parse
+    type: str
+    required: true
+    description: Command result to parse
   section:
-    description:
-      - Section to read
+    type: str
+    required: true
+    description: Section to read
   token:
-    description:
-      - Token to extract
+    type: str
+    description: Token to extract
   default:
-    description:
-      - Default value to return if token is not found
+    type: str
+    description: Default value to return if token is not found
 author:
-  - Remi Pauchet (@stormshield)
+  - Remi Pauchet (@remip2)
 notes:
   - This module requires the stormshield.sns.sslclient python library
 '''
 
-EXAMPLES = '''
+EXAMPLES = r'''
 - name: Extract firmware version from SYSTEM PROPERTY
   stormshield.sns.sns_getconf:
     result: "{{ sysprop.result }}"
@@ -56,7 +54,7 @@ EXAMPLES = '''
   register: myversion
 '''
 
-RETURN = '''
+RETURN = r'''
 value:
   description: Extracted token value
   returned: changed
