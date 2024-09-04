@@ -22,15 +22,17 @@ description:
   - This module executes configuration commands or scripts on the remote appliance.
   - "Configuration API reference: https://documentation.stormshield.eu/SNS/v3/en/Content/CLI_Serverd_Commands_reference_Guide_v3/Introduction.htm"
 options:
+  command:
+    type: str
+    description: Command to execute (one of command or script parameters is required).
   script:
     type: str
-    description:
-      - Configuration script to execute.
+    description: Configuration script to execute (one of command or script parameters is required).
   expect_disconnect:
     type: bool
     default: False
     description:
-      - "Set to True if the script makes the remote server to disconnect (ie: install firmware update)."
+      - "Set to True if the script makes the remote appliance to disconnect (ie: install firmware update)."
   force_modify:
     type: bool
     default: False
