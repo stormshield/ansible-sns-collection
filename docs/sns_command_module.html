@@ -144,7 +144,7 @@
 <h1>stormshield.sns.sns_command module – SNS command<a class="headerlink" href="#stormshield-sns-sns-command-module-sns-command" title="Link to this heading"></a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This module is part of the <a class="reference external" href="https://galaxy.ansible.com/ui/repo/published/stormshield/sns/">stormshield.sns collection</a> (version 1.0.1).</p>
+<p>This module is part of the <a class="reference external" href="https://galaxy.ansible.com/ui/repo/published/stormshield/sns/">stormshield.sns collection</a> (version 1.0.2).</p>
 <p>It is not included in <code class="docutils literal notranslate"><span class="pre">ansible-core</span></code>.
 To check whether it is installed, run <code class="code docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">list</span></code>.</p>
 <p>To install it, use: <code class="code docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">install</span> <span class="pre">stormshield.sns</span></code>.</p>
@@ -177,37 +177,140 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <tbody>
 <tr class="row-even"><td><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-appliance"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-command-module-parameter-appliance"><strong>appliance</strong></p>
-<a class="ansibleOptionLink" href="#parameter-appliance" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+<a class="ansibleOptionLink" href="#parameter-appliance" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">dictionary</span> / <span class="ansible-option-required">required</span></p>
 </div></td>
-<td><div class="ansible-option-cell"><p>appliance connection’s parameters (host, port, user, password, sslverifypeer, sslverifyhost, cabundle, usercert, proxy)</p>
+<td><div class="ansible-option-cell"><p>SNS appliance connection parameters</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-appliance/cabundle"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-command-module-parameter-appliance-cabundle"><strong>cabundle</strong></p>
+<a class="ansibleOptionLink" href="#parameter-appliance/cabundle" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Path to the CA bundle file</p>
+<p class="ansible-option-line"><strong class="ansible-option-default-bold">Default:</strong> <code class="ansible-option-default docutils literal notranslate"><span class="pre">&quot;none&quot;</span></code></p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-appliance/host"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-command-module-parameter-appliance-host"><strong>host</strong></p>
+<a class="ansibleOptionLink" href="#parameter-appliance/host" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span> / <span class="ansible-option-required">required</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Hostname or ip</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-appliance/ip"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-command-module-parameter-appliance-ip"><strong>ip</strong></p>
+<a class="ansibleOptionLink" href="#parameter-appliance/ip" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>IP address</p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-appliance/password"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-command-module-parameter-appliance-password"><strong>password</strong></p>
+<a class="ansibleOptionLink" href="#parameter-appliance/password" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Connection password</p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-appliance/port"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-command-module-parameter-appliance-port"><strong>port</strong></p>
+<a class="ansibleOptionLink" href="#parameter-appliance/port" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Port to connect</p>
+<p class="ansible-option-line"><strong class="ansible-option-default-bold">Default:</strong> <code class="ansible-option-default docutils literal notranslate"><span class="pre">443</span></code></p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-appliance/proxy"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-command-module-parameter-appliance-proxy"><strong>proxy</strong></p>
+<a class="ansibleOptionLink" href="#parameter-appliance/proxy" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Proxy URL (scheme://user:password&#64;host:port)</p>
+<p class="ansible-option-line"><strong class="ansible-option-default-bold">Default:</strong> <code class="ansible-option-default docutils literal notranslate"><span class="pre">&quot;none&quot;</span></code></p>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-appliance/sslverifyhost"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-command-module-parameter-appliance-sslverifyhost"><strong>sslverifyhost</strong></p>
+<a class="ansibleOptionLink" href="#parameter-appliance/sslverifyhost" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Strict SSL host name check</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-default-bold docutils literal notranslate"><strong><span class="pre">true</span></strong></code> <span class="ansible-option-choices-default-mark">← (default)</span></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-appliance/sslverifypeer"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-command-module-parameter-appliance-sslverifypeer"><strong>sslverifypeer</strong></p>
+<a class="ansibleOptionLink" href="#parameter-appliance/sslverifypeer" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Strict SSL CA check</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="ansible-option-default-bold docutils literal notranslate"><strong><span class="pre">true</span></strong></code> <span class="ansible-option-choices-default-mark">← (default)</span></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-appliance/user"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-command-module-parameter-appliance-user"><strong>user</strong></p>
+<a class="ansibleOptionLink" href="#parameter-appliance/user" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>User name</p>
+<p class="ansible-option-line"><strong class="ansible-option-default-bold">Default:</strong> <code class="ansible-option-default docutils literal notranslate"><span class="pre">&quot;admin&quot;</span></code></p>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-appliance/usercert"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-command-module-parameter-appliance-usercert"><strong>usercert</strong></p>
+<a class="ansibleOptionLink" href="#parameter-appliance/usercert" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+</div></td>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Path to the user certificate file</p>
+<p class="ansible-option-line"><strong class="ansible-option-default-bold">Default:</strong> <code class="ansible-option-default docutils literal notranslate"><span class="pre">&quot;none&quot;</span></code></p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-expect_disconnect"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-command-module-parameter-expect-disconnect"><strong>expect_disconnect</strong></p>
-<a class="ansibleOptionLink" href="#parameter-expect_disconnect" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+<div class="ansibleOptionAnchor" id="parameter-command"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-command-module-parameter-command"><strong>command</strong></p>
+<a class="ansibleOptionLink" href="#parameter-command" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-cell"><p>Set to True if the script makes the remote server to disconnect (ie: install firmware update)</p>
+<td><div class="ansible-option-cell"><p>Command to execute (one of command or script parameters is required).</p>
 </div></td>
 </tr>
 <tr class="row-even"><td><div class="ansible-option-cell">
-<div class="ansibleOptionAnchor" id="parameter-force_modify"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-command-module-parameter-force-modify"><strong>force_modify</strong></p>
-<a class="ansibleOptionLink" href="#parameter-force_modify" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+<div class="ansibleOptionAnchor" id="parameter-expect_disconnect"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-command-module-parameter-expect-disconnect"><strong>expect_disconnect</strong></p>
+<a class="ansibleOptionLink" href="#parameter-expect_disconnect" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
 </div></td>
-<td><div class="ansible-option-cell"><p>Set to true to disconnect other administrator already connected with modify privilege.</p>
+<td><div class="ansible-option-cell"><p>Set to True if the script makes the remote appliance to disconnect (ie: install firmware update).</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-default-bold docutils literal notranslate"><strong><span class="pre">false</span></strong></code> <span class="ansible-option-choices-default-mark">← (default)</span></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-cell">
+<div class="ansibleOptionAnchor" id="parameter-force_modify"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-command-module-parameter-force-modify"><strong>force_modify</strong></p>
+<a class="ansibleOptionLink" href="#parameter-force_modify" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">boolean</span></p>
+</div></td>
+<td><div class="ansible-option-cell"><p>Set to true to disconnect other administrator already connected with modify privilege.</p>
+<p class="ansible-option-line"><strong class="ansible-option-choices">Choices:</strong></p>
+<ul class="simple">
+<li><p><code class="ansible-option-default-bold docutils literal notranslate"><strong><span class="pre">false</span></strong></code> <span class="ansible-option-choices-default-mark">← (default)</span></p></li>
+<li><p><code class="ansible-option-choices-entry docutils literal notranslate"><span class="pre">true</span></code></p></li>
+</ul>
+</div></td>
+</tr>
+<tr class="row-even"><td><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-script"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-command-module-parameter-script"><strong>script</strong></p>
 <a class="ansibleOptionLink" href="#parameter-script" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-cell"><p>Configuration script to execute</p>
+<td><div class="ansible-option-cell"><p>Configuration script to execute (one of command or script parameters is required).</p>
 </div></td>
 </tr>
-<tr class="row-even"><td><div class="ansible-option-cell">
+<tr class="row-odd"><td><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-timeout"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-command-module-parameter-timeout"><strong>timeout</strong></p>
-<a class="ansibleOptionLink" href="#parameter-timeout" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
+<a class="ansibleOptionLink" href="#parameter-timeout" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">integer</span></p>
 </div></td>
 <td><div class="ansible-option-cell"><p>Set the connection and read timeout.</p>
+<p class="ansible-option-line"><strong class="ansible-option-default-bold">Default:</strong> <code class="ansible-option-default docutils literal notranslate"><span class="pre">30</span></code></p>
 </div></td>
 </tr>
 </tbody>
@@ -294,7 +397,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <section id="authors">
 <h3>Authors<a class="headerlink" href="#authors" title="Link to this heading"></a></h3>
 <ul class="simple">
-<li><p>Remi Pauchet (&#64;stormshield)</p></li>
+<li><p>Remi Pauchet (&#64;remip2)</p></li>
 </ul>
 </section>
 <section id="collection-links">
