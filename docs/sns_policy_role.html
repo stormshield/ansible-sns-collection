@@ -1,27 +1,25 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta content="2.12.0" name="antsibull-docs" />
+<meta content="2.24.0" name="antsibull-docs" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>stormshield.sns.sns_policy role – Policy configuration &mdash; Ansible SNS collection  documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5707b69d" />
-      <link rel="stylesheet" type="text/css" href="_static/css/ansible.css?v=c5b67dd2" />
-      <link rel="stylesheet" type="text/css" href="_static/antsibull-minimal.css?v=9c1ca88e" />
+  <title>stormshield.sns.sns_policy role – Policy configuration &mdash; Ansible collections  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=41de9001" />
+      <link rel="stylesheet" type="text/css" href="_static/css/ansible.css?v=b54c304f" />
+      <link rel="stylesheet" type="text/css" href="_static/antsibull-minimal.css" />
       <link rel="stylesheet" type="text/css" href="_static/css/rtd-ethical-ads.css?v=289b023e" />
 
   
     <link rel="shortcut icon" href="_static/images/Ansible-Mark-RGB_Black.png"/>
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=7f41d439"></script>
-        <script src="_static/doctools.js?v=9a2dae69"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=7f41d439"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="stormshield.sns.sns_url role – URL configuration" href="sns_url_role.html" />
@@ -36,8 +34,9 @@
 
 <div class="DocSite-globalNav ansibleNav">
   <ul>
-    <li><a href="https://stormshield.eu/" target="_blank">Corporate website</a></li>
-    <li><a href="https://documentation.stormshield.eu/" target="_blank">Documentation</a></li>
+    <li><a href="https://www.ansible.com/blog" target="_blank">Blog</a></li>
+    <li><a href="https://forum.ansible.com/" target="_blank">Ansible community forum</a></li>
+    <li><a href="https://docs.ansible.com/" target="_blank">Documentation</a></li>
   </ul>
 </div>
 
@@ -46,7 +45,7 @@
   <img class="DocSiteNav-logo"
     src="_static/images/Ansible-Mark-RGB_White.png"
     alt="Ansible Logo">
-  <div class="DocSiteNav-title">Ansible SNS Collection Documentation</div>
+  <div class="DocSiteNav-title">Ansible Collections Documentation</div>
 </a>
   <div class="wy-grid-for-nav">
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
@@ -56,7 +55,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            Ansible SNS collection
+            Ansible collections
           </a><!--- Based on https://github.com/rtfd/sphinx_rtd_theme/pull/438/files -->
 
 <div class="version">
@@ -120,7 +119,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Ansible SNS collection</a>
+          <a href="index.html">Ansible collections</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -143,7 +142,7 @@
 <h1>stormshield.sns.sns_policy role – Policy configuration<a class="headerlink" href="#stormshield-sns-sns-policy-role-policy-configuration" title="Link to this heading"></a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This role is part of the <a class="reference external" href="https://galaxy.ansible.com/ui/repo/published/stormshield/sns/">stormshield.sns collection</a> (version 1.0.2).</p>
+<p>This role is part of the <a class="reference external" href="https://galaxy.ansible.com/ui/repo/published/stormshield/sns/">stormshield.sns collection</a> (version 1.0.3).</p>
 <p>It is not included in <code class="docutils literal notranslate"><span class="pre">ansible-core</span></code>.
 To check whether it is installed, run <code class="code docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">list</span></code>.</p>
 <p>To install it use: <code class="code docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">collection</span> <span class="pre">install</span> <span class="pre">stormshield.sns</span></code>.</p>
@@ -151,24 +150,24 @@ To check whether it is installed, run <code class="code docutils literal notrans
 </div>
 <nav class="contents local" id="contents">
 <ul class="simple">
-<li><p><a class="reference internal" href="#entry-point-main-policy-configuration" id="id81">Entry point <code class="docutils literal notranslate"><span class="pre">main</span></code> – Policy configuration</a></p>
+<li><p><a class="reference internal" href="#entry-point-main-policy-configuration" id="id1">Entry point <code class="docutils literal notranslate"><span class="pre">main</span></code> – Policy configuration</a></p>
 <ul>
-<li><p><a class="reference internal" href="#synopsis" id="id82">Synopsis</a></p></li>
-<li><p><a class="reference internal" href="#parameters" id="id83">Parameters</a></p></li>
+<li><p><a class="reference internal" href="#synopsis" id="id2">Synopsis</a></p></li>
+<li><p><a class="reference internal" href="#parameters" id="id3">Parameters</a></p></li>
 </ul>
 </li>
 </ul>
 </nav>
-<section id="entry-point-main-policy-configuration">
-<h2><a class="toc-backref" href="#id81" role="doc-backlink">Entry point <code class="docutils literal notranslate"><span class="pre">main</span></code> – Policy configuration</a><a class="headerlink" href="#entry-point-main-policy-configuration" title="Link to this heading"></a></h2>
+<span class="target" id="ansible-collections-stormshield-sns-sns-policy-role-entrypoint-main"></span><section id="entry-point-main-policy-configuration">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Entry point <code class="docutils literal notranslate"><span class="pre">main</span></code> – Policy configuration</a><a class="headerlink" href="#entry-point-main-policy-configuration" title="Link to this heading"></a></h2>
 <section id="synopsis">
-<h3><a class="toc-backref" href="#id82" role="doc-backlink">Synopsis</a><a class="headerlink" href="#synopsis" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id2" role="doc-backlink">Synopsis</a><a class="headerlink" href="#synopsis" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>This role configures filter and NAT policies of Stormshield Network Security appliances.</p></li>
 </ul>
 </section>
 <section id="parameters">
-<h3><a class="toc-backref" href="#id83" role="doc-backlink">Parameters</a><a class="headerlink" href="#parameters" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">Parameters</a><a class="headerlink" href="#parameters" title="Link to this heading"></a></h3>
 <table class="longtable ansible-option-table docutils align-default" style="width: 100%">
 <thead>
 <tr class="row-odd"><th class="head"><p>Parameter</p></th>
@@ -284,7 +283,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <div class="ansibleOptionAnchor" id="parameter-main--filter/dstgeo"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-dstgeo"><strong>dstgeo</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--filter/dstgeo" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Destination geo object(&lt;objectgeo[<a href="#id53"><span class="problematic" id="id54">|objectgeo[|</span></a>…]]])</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Destination geo object(&lt;objectgeo[|objectgeo[|…]]])</p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
@@ -317,7 +316,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <div class="ansibleOptionAnchor" id="parameter-main--filter/dstiprep"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-dstiprep"><strong>dstiprep</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--filter/dstiprep" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Destination IP reputation (&lt;objectiprep[<a href="#id55"><span class="problematic" id="id56">|objectiprep[|</span></a>…]]])]</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Destination IP reputation (&lt;objectiprep[|objectiprep[|…]]])]</p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
@@ -401,14 +400,14 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <div class="ansibleOptionAnchor" id="parameter-main--filter/icmpcode"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-icmpcode"><strong>icmpcode</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--filter/icmpcode" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>ICMP code (“”<a href="#id1"><span class="problematic" id="id2">|</span></a>&lt;0-255&gt;)</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>ICMP code (“”|&lt;0-255&gt;)</p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--filter/icmptype"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-icmptype"><strong>icmptype</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--filter/icmptype" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>ICMP type (“”<a href="#id3"><span class="problematic" id="id4">|</span></a>&lt;0-255&gt;)</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>ICMP type (“”|&lt;0-255&gt;)</p>
 </div></td>
 </tr>
 <tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
@@ -473,7 +472,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <div class="ansibleOptionAnchor" id="parameter-main--filter/mailfiltering"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-mailfiltering"><strong>mailfiltering</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--filter/mailfiltering" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Mail policy index (“”<a href="#id5"><span class="problematic" id="id6">|</span></a>&lt;0-9&gt;)</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Mail policy index (“”|&lt;0-9&gt;)</p>
 </div></td>
 </tr>
 <tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
@@ -550,7 +549,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <div class="ansibleOptionAnchor" id="parameter-main--filter/natdsttarget"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-natdsttarget"><strong>natdsttarget</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--filter/natdsttarget" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>NAT destination target (“”<a href="#id57"><span class="problematic" id="id58">|original|</span></a>&lt;object name&gt;)</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>NAT destination target (“”|original|&lt;object name&gt;)</p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
@@ -617,7 +616,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <div class="ansibleOptionAnchor" id="parameter-main--filter/natsrctarget"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-natsrctarget"><strong>natsrctarget</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--filter/natsrctarget" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>NAT source target (“”<a href="#id59"><span class="problematic" id="id60">|original|</span></a>&lt;object name&gt;)</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>NAT source target (“”|original|&lt;object name&gt;)</p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
@@ -677,14 +676,14 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <div class="ansibleOptionAnchor" id="parameter-main--filter/rate"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-rate"><strong>rate</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--filter/rate" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>(“”<a href="#id7"><span class="problematic" id="id8">|</span></a>&lt;tcp&gt;,&lt;udp&gt;,&lt;icmp&gt;,&lt;request&gt;)</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>(“”|&lt;tcp&gt;,&lt;udp&gt;,&lt;icmp&gt;,&lt;request&gt;)</p>
 </div></td>
 </tr>
 <tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--filter/route"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-route"><strong>route</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--filter/route" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Use route (“”<a href="#id61"><span class="problematic" id="id62">|\&lt;objrouter\&gt;|</span></a>&lt;hostname&gt;|&lt;ipaddr&gt;)</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Use route (“”|&lt;objrouter&gt;|&lt;hostname&gt;|&lt;ipaddr&gt;)</p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
@@ -717,21 +716,21 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <div class="ansibleOptionAnchor" id="parameter-main--filter/securityinspection"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-securityinspection"><strong>securityinspection</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--filter/securityinspection" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Security inspection index (“”<a href="#id9"><span class="problematic" id="id10">|</span></a>&lt;0-9&gt;)</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Security inspection index (“”|&lt;0-9&gt;)</p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--filter/settos"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-settos"><strong>settos</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--filter/settos" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Set TOS Field (“”<a href="#id11"><span class="problematic" id="id12">|</span></a>1-254)</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Set TOS Field (“”|1-254)</p>
 </div></td>
 </tr>
 <tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--filter/srcgeo"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-srcgeo"><strong>srcgeo</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--filter/srcgeo" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Source geo object (&lt;objectgeo[<a href="#id63"><span class="problematic" id="id64">|\&lt;objectgeo\&gt;[|</span></a>…]]])</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Source geo object (&lt;objectgeo[|&lt;objectgeo&gt;[|…]]])</p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
@@ -764,7 +763,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <div class="ansibleOptionAnchor" id="parameter-main--filter/srciprep"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-srciprep"><strong>srciprep</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--filter/srciprep" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>=(&lt;objectiprep[<a href="#id65"><span class="problematic" id="id66">|\&lt;objectiprep\&gt;[|</span></a>…]]])]</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>=(&lt;objectiprep[|&lt;objectiprep&gt;[|…]]])]</p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
@@ -799,14 +798,14 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <div class="ansibleOptionAnchor" id="parameter-main--filter/srcuser"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-srcuser"><strong>srcuser</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--filter/srcuser" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Source user (“”<a href="#id13"><span class="problematic" id="id14">|</span></a>any|unknown|[!]&lt;user&gt;|[!]&lt;usergroup&gt;)</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Source user (“”|any|unknown|[!]&lt;user&gt;|[!]&lt;usergroup&gt;)</p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--filter/srcuserdomain"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-srcuserdomain"><strong>srcuserdomain</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--filter/srcuserdomain" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Source user domain (“”<a href="#id15"><span class="problematic" id="id16">|</span></a>&lt;domain name&gt;)</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Source user domain (“”|&lt;domain name&gt;)</p>
 </div></td>
 </tr>
 <tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
@@ -834,14 +833,14 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <div class="ansibleOptionAnchor" id="parameter-main--filter/srcusertype"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-srcusertype"><strong>srcusertype</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--filter/srcusertype" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Source user type (“”<a href="#id17"><span class="problematic" id="id18">|</span></a>user|group)</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Source user type (“”|user|group)</p>
 </div></td>
 </tr>
 <tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--filter/sslfiltering"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-sslfiltering"><strong>sslfiltering</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--filter/sslfiltering" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>SSL policy index (<a href="#id19"><span class="problematic" id="id20">|</span></a>&lt;0-9&gt;)</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>SSL policy index (|&lt;0-9&gt;)</p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
@@ -872,14 +871,14 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <div class="ansibleOptionAnchor" id="parameter-main--filter/tos"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-tos"><strong>tos</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--filter/tos" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Filter TOS field (“”<a href="#id21"><span class="problematic" id="id22">|</span></a>&lt;1-254&gt;)</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Filter TOS field (“”|&lt;1-254&gt;)</p>
 </div></td>
 </tr>
 <tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--filter/urlfiltering"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-urlfiltering"><strong>urlfiltering</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--filter/urlfiltering" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>URL policy index (“”<a href="#id23"><span class="problematic" id="id24">|</span></a>&lt;0-9&gt;)</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>URL policy index (“”|&lt;0-9&gt;)</p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
@@ -902,7 +901,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <div class="ansibleOptionAnchor" id="parameter-main--filter/webportalexcept"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-filter-webportalexcept"><strong>webportalexcept</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--filter/webportalexcept" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Web portal exception (“”<a href="#id25"><span class="problematic" id="id26">|</span></a>urlgroup[,urlgroup[,urlgroup[,…]]])</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Web portal exception (“”|urlgroup[,urlgroup[,urlgroup[,…]]])</p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-cell">
@@ -1007,7 +1006,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <div class="ansibleOptionAnchor" id="parameter-main--nat/dstgeo"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-dstgeo"><strong>dstgeo</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--nat/dstgeo" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Destination geo object(&lt;objectgeo[<a href="#id67"><span class="problematic" id="id68">|objectgeo[|</span></a>…]]])</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Destination geo object(&lt;objectgeo[|objectgeo[|…]]])</p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
@@ -1040,7 +1039,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <div class="ansibleOptionAnchor" id="parameter-main--nat/dstiprep"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-dstiprep"><strong>dstiprep</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--nat/dstiprep" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Destination IP reputation (&lt;objectiprep[<a href="#id69"><span class="problematic" id="id70">|objectiprep[|</span></a>…]]])]</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Destination IP reputation (&lt;objectiprep[|objectiprep[|…]]])]</p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
@@ -1124,14 +1123,14 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <div class="ansibleOptionAnchor" id="parameter-main--nat/icmpcode"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-icmpcode"><strong>icmpcode</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--nat/icmpcode" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>ICMP code (“”<a href="#id27"><span class="problematic" id="id28">|</span></a>&lt;0-255&gt;)</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>ICMP code (“”|&lt;0-255&gt;)</p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--nat/icmptype"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-icmptype"><strong>icmptype</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--nat/icmptype" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>ICMP type (“”<a href="#id29"><span class="problematic" id="id30">|</span></a>&lt;0-255&gt;)</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>ICMP type (“”|&lt;0-255&gt;)</p>
 </div></td>
 </tr>
 <tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
@@ -1196,7 +1195,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <div class="ansibleOptionAnchor" id="parameter-main--nat/mailfiltering"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-mailfiltering"><strong>mailfiltering</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--nat/mailfiltering" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Mail policy index (“”<a href="#id31"><span class="problematic" id="id32">|</span></a>&lt;0-9&gt;)</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Mail policy index (“”|&lt;0-9&gt;)</p>
 </div></td>
 </tr>
 <tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
@@ -1273,7 +1272,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <div class="ansibleOptionAnchor" id="parameter-main--nat/natdsttarget"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-natdsttarget"><strong>natdsttarget</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--nat/natdsttarget" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>NAT destination target (“”<a href="#id71"><span class="problematic" id="id72">|original|</span></a>&lt;object name&gt;)</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>NAT destination target (“”|original|&lt;object name&gt;)</p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
@@ -1340,7 +1339,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <div class="ansibleOptionAnchor" id="parameter-main--nat/natsrctarget"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-natsrctarget"><strong>natsrctarget</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--nat/natsrctarget" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>NAT source target (“”<a href="#id73"><span class="problematic" id="id74">|original|</span></a>&lt;object name&gt;)</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>NAT source target (“”|original|&lt;object name&gt;)</p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
@@ -1400,14 +1399,14 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <div class="ansibleOptionAnchor" id="parameter-main--nat/rate"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-rate"><strong>rate</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--nat/rate" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>(“”<a href="#id33"><span class="problematic" id="id34">|</span></a>&lt;tcp&gt;,&lt;udp&gt;,&lt;icmp&gt;,&lt;request&gt;)</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>(“”|&lt;tcp&gt;,&lt;udp&gt;,&lt;icmp&gt;,&lt;request&gt;)</p>
 </div></td>
 </tr>
 <tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--nat/route"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-route"><strong>route</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--nat/route" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Use route (“”<a href="#id75"><span class="problematic" id="id76">|\&lt;objrouter\&gt;|</span></a>&lt;hostname&gt;|&lt;ipaddr&gt;)</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Use route (“”|&lt;objrouter&gt;|&lt;hostname&gt;|&lt;ipaddr&gt;)</p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
@@ -1440,21 +1439,21 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <div class="ansibleOptionAnchor" id="parameter-main--nat/securityinspection"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-securityinspection"><strong>securityinspection</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--nat/securityinspection" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Security inspection index (“”<a href="#id35"><span class="problematic" id="id36">|</span></a>&lt;0-9&gt;)</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Security inspection index (“”|&lt;0-9&gt;)</p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--nat/settos"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-settos"><strong>settos</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--nat/settos" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Set TOS Field (“”<a href="#id37"><span class="problematic" id="id38">|</span></a>1-254)</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Set TOS Field (“”|1-254)</p>
 </div></td>
 </tr>
 <tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--nat/srcgeo"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-srcgeo"><strong>srcgeo</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--nat/srcgeo" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Source geo object (&lt;objectgeo[<a href="#id77"><span class="problematic" id="id78">|\&lt;objectgeo\&gt;[|</span></a>…]]])</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Source geo object (&lt;objectgeo[|&lt;objectgeo&gt;[|…]]])</p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
@@ -1487,7 +1486,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <div class="ansibleOptionAnchor" id="parameter-main--nat/srciprep"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-srciprep"><strong>srciprep</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--nat/srciprep" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>=(&lt;objectiprep[<a href="#id79"><span class="problematic" id="id80">|\&lt;objectiprep\&gt;[|</span></a>…]]])]</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>=(&lt;objectiprep[|&lt;objectiprep&gt;[|…]]])]</p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
@@ -1522,14 +1521,14 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <div class="ansibleOptionAnchor" id="parameter-main--nat/srcuser"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-srcuser"><strong>srcuser</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--nat/srcuser" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Source user (“”<a href="#id39"><span class="problematic" id="id40">|</span></a>any|unknown|[!]&lt;user&gt;|[!]&lt;usergroup&gt;)</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Source user (“”|any|unknown|[!]&lt;user&gt;|[!]&lt;usergroup&gt;)</p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--nat/srcuserdomain"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-srcuserdomain"><strong>srcuserdomain</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--nat/srcuserdomain" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Source user domain (“”<a href="#id41"><span class="problematic" id="id42">|</span></a>&lt;domain name&gt;)</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Source user domain (“”|&lt;domain name&gt;)</p>
 </div></td>
 </tr>
 <tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
@@ -1557,14 +1556,14 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <div class="ansibleOptionAnchor" id="parameter-main--nat/srcusertype"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-srcusertype"><strong>srcusertype</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--nat/srcusertype" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Source user type (“”<a href="#id43"><span class="problematic" id="id44">|</span></a>user|group)</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Source user type (“”|user|group)</p>
 </div></td>
 </tr>
 <tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--nat/sslfiltering"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-sslfiltering"><strong>sslfiltering</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--nat/sslfiltering" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>SSL policy index (<a href="#id45"><span class="problematic" id="id46">|</span></a>&lt;0-9&gt;)</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>SSL policy index (|&lt;0-9&gt;)</p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
@@ -1595,14 +1594,14 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <div class="ansibleOptionAnchor" id="parameter-main--nat/tos"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-tos"><strong>tos</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--nat/tos" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Filter TOS field (“”<a href="#id47"><span class="problematic" id="id48">|</span></a>&lt;1-254&gt;)</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Filter TOS field (“”|&lt;1-254&gt;)</p>
 </div></td>
 </tr>
 <tr class="row-even"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
 <div class="ansibleOptionAnchor" id="parameter-main--nat/urlfiltering"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-urlfiltering"><strong>urlfiltering</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--nat/urlfiltering" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>URL policy index (“”<a href="#id49"><span class="problematic" id="id50">|</span></a>&lt;0-9&gt;)</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>URL policy index (“”|&lt;0-9&gt;)</p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-indent"></div><div class="ansible-option-cell">
@@ -1625,7 +1624,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
 <div class="ansibleOptionAnchor" id="parameter-main--nat/webportalexcept"></div><p class="ansible-option-title" id="ansible-collections-stormshield-sns-sns-policy-role-parameter-main-nat-webportalexcept"><strong>webportalexcept</strong></p>
 <a class="ansibleOptionLink" href="#parameter-main--nat/webportalexcept" title="Permalink to this option"></a><p class="ansible-option-type-line"><span class="ansible-option-type">string</span></p>
 </div></td>
-<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Web portal exception (“”<a href="#id51"><span class="problematic" id="id52">|</span></a>urlgroup[,urlgroup[,urlgroup[,…]]])</p>
+<td><div class="ansible-option-indent-desc"></div><div class="ansible-option-cell"><p>Web portal exception (“”|urlgroup[,urlgroup[,urlgroup[,…]]])</p>
 </div></td>
 </tr>
 <tr class="row-odd"><td><div class="ansible-option-cell">
@@ -1680,7 +1679,7 @@ To check whether it is installed, run <code class="code docutils literal notrans
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright Stormshield.</p>
+    <p>&#169; Copyright Ansible contributors.</p>
   </div>
 
   
