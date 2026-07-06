@@ -37,6 +37,7 @@
     - ipstate
     - ipproto
     - icmptype
+    - icmpcode
     - srcuser
     - srcusertype
     - srcuserdomain
