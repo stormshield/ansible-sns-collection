@@ -33,6 +33,12 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
+      - name: Verify index.html exists
+        run: |
+          if [ ! -f docs/index.html ]; then
+            echo "::error::docs/index.html not found. Pages requires an index.html at the artifact root."
+            exit 1
+          fi
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
