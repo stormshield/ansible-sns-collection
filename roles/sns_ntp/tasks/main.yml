@@ -1,4 +1,18 @@
 ---
+
+- name: Get firmware version
+  stormshield.sns.sns_command:
+    appliance: "{{ hostvars[inventory_hostname].appliance }}"
+    command: SYSTEM PROPERTY
+  register: sysprop
+
+- name: Extract version
+  stormshield.sns.sns_getconf:
+    result: "{{ sysprop.result }}"
+    section: Result
+    token: Version
+  register: firmware_version
+
 - name: Get current ntp configuration (servers)
   sns_command:
     appliance: "{{ hostvars[inventory_hostname].appliance }}"

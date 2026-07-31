@@ -23,7 +23,11 @@ CONFIG NTP KEY REMOVE {{ line.keynum }}
 {% for server in ntp_servers %}
 {% if 'key' in server %}
 {% set index=index + 1 %}
+{% if firmware_version.value is version('5.2.0', '>=') %}
+CONFIG NTP KEY ADD keytype=md5-ascii keydata={{ server.key }} keynum={{ index }}
+{% else %}
 CONFIG NTP KEY ADD md5-ascii={{ server.key }} keynum={{ index }}
+{% endif %}
 CONFIG NTP SERVER ADD name={{ server.host }} keynum={{ index }}
 {% else %}
 CONFIG NTP SERVER ADD name={{ server.host }}
